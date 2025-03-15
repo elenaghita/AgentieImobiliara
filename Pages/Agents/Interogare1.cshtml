@@ -1,0 +1,25 @@
+﻿@page
+@model Agentie_Imobiliara.Pages.Agents.Interogare1Model
+@{
+}
+
+
+<br>
+<h2>Tipul de proprietate de care se ocupa fiecare agent imobiliar</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Agent Imobiliar</th>
+            <th>Proprietate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.MedicPacientList)
+        {
+            <tr>
+                <td>@item.AgentNume @item.AgentPrenume</td>
+                <td>@item.TipProprietate</td>
+            </tr>
+        }
+    </tbody>
+</table>

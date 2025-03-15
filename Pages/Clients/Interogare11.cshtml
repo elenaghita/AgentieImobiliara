@@ -1,0 +1,42 @@
+﻿@page
+@model Interogare10Model
+@{
+    ViewData["Title"] = "Proprietăți - Statistici Vizite";
+}
+
+<h1>Proprietăți - Statistici Vizite</h1>
+
+@if (Model.ProprietatiList != null && Model.ProprietatiList.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>ID Proprietate</th>
+                <th>Localizare</th>
+                <th>Preț</th>
+                <th>Nume Agent</th>
+                <th>Număr Programări</th>
+                <th>Ultima Vizită</th>
+                <th>Categorie Vizite</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var proprietate in Model.ProprietatiList)
+            {
+                <tr>
+                    <td>@proprietate.ProprietateID</td>
+                    <td>@proprietate.Localizare</td>
+                    <td>@proprietate.Pret</td>
+                    <td>@proprietate.NumeAgent</td>
+                    <td>@proprietate.NumarProgramari</td>
+                    <td>@proprietate.UltimaVizita</td>
+                    <td>@proprietate.CategorieVizite</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Nu s-au găsit proprietăți care să corespundă criteriilor.</p>
+}

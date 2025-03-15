@@ -1,0 +1,36 @@
+﻿@page
+@model Agentie_Imobiliara.Pages.Clients.Interogare6Model
+@{
+    ViewData["Title"] = "Lista utilizatorilor care au programat vizionări pentru cele mai scumpe proprietăți";
+}
+
+<h2>Lista utilizatorilor care au programat vizionări pentru cele mai scumpe proprietăți</h2>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        @Model.ErrorMessage
+    </div>
+}
+else
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Utilizator</th>
+                <th>Număr Vizionări Proprietăți Scumpe(peste media preturilor)</th>
+                <th>Total Vizionări</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var utilizator in Model.UtilizatoriList)
+            {
+                <tr>
+                    <td>@utilizator.Utilizator</td>
+                    <td>@utilizator.NumarVizionariProprietatiScumpe</td>
+                    <td>@utilizator.TotalVizionari</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

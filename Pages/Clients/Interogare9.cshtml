@@ -1,0 +1,46 @@
+﻿@page
+@model Agentie_Imobiliara.Pages.Clients.Interogare9Model
+@{
+    ViewData["Title"] = "Căutare Agenți Imobiliari";
+}
+
+<h1>Căutare Agenți Imobiliari</h1>
+
+<form method="get">
+    <div class="form-group">
+        <label for="Nume">Nume Agent:</label>
+        <input type="text" id="Nume" name="Nume" class="form-control" value="@Model.Nume" placeholder="Introduceți numele agentului">
+    </div>
+    <button type="submit" class="btn btn-primary">Caută</button>
+</form>
+
+@if (Model.Agenti.Count > 0)
+{
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nume Agent</th>
+                <th>Telefon</th>
+                <th>Email</th>
+                <th>Licență</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var agent in Model.Agenti)
+            {
+                <tr>
+                    <td>@agent.AgentImobiliarID</td>
+                    <td>@agent.NumeAgent</td>
+                    <td>@agent.Telefon</td>
+                    <td>@agent.Email</td>
+                    <td>@agent.Licenta</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p class="mt-4">Nu există agenți imobiliari care să corespundă criteriilor de căutare.</p>
+}

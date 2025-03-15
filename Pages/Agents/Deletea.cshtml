@@ -1,0 +1,34 @@
+﻿@page
+@using System.Data.SqlClient;
+
+@{
+
+    try
+    {
+        String AgentImobiliarID = Request.Query["AgentImobiliarID"];
+
+        String connectionString = "Data Source=DESKTOP-256DFHR\\SQLEXPRESS;Initial Catalog=Anunturi_imobiliare;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            String SQL = "DELETE FROM AgentImobiliar WHERE AgentImobiliarID=@AgentImobiliarID";
+
+
+            using (SqlCommand command = new SqlCommand(SQL, connection))
+            {
+
+
+                command.Parameters.AddWithValue("@AgentImobiliarID", AgentImobiliarID);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+
+    catch (Exception ex)
+    {
+    }
+
+    Response.Redirect("/Agents/Indexa");
+
+}

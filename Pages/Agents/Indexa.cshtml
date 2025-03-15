@@ -1,0 +1,67 @@
+﻿@page
+@model Agentie_Imobiliara.Pages.Agents.IndexaModel
+@{
+}
+
+<br>
+<h2>List of Agents</h2>
+<a class='btn btn-primary btn-sm' href='/Agents/Createa'>New Agent</a>
+<table class="table">
+	<thead>
+		<tr>
+			<th>AgentImobiliarID</th>
+			<th>Nume</th>
+			<th>Prenume</th>
+			<th>Telefon</th>
+			<th>Email</th>
+			<th>Licenta</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.listAgents)
+		{
+			<tr>
+				<td>@item.AgentImobiliarID</td>
+				<td>@item.Nume</td>
+				<td>@item.Prenume</td>
+				<td>@item.Telefon</td>
+				<td>@item.Email</td>
+				<td>@item.Licenta</td>
+				<td>
+					<a class="btn btn-primary btn-sm" href="/Agents/Edita?AgentImobiliarID=@item.AgentImobiliarID">Edit</a>
+					<a class="btn btn-danger btn-sm" href="/Agents/Deletea?AgentImobiliarID=@item.AgentImobiliarID">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+
+</table>
+
+<br />
+<h2>Afisarea tipului proprietatii de care se ocupa fiecare agent</h2>
+<a class='btn btn-primary btn-sm' href='/Agents/Interogare1'>Proprietatile fiecarui agent</a>
+
+<br />
+<h2> Lista agenților imobiliari și numărul de vizionări programate pentru proprietățile lor </h2>
+<a class='btn btn-primary btn-sm' href='/Agents/Interogare5'>Lista agenților imobiliari și numărul de vizionări programate pentru proprietățile lor</a>
+
+<br />
+<h2> Statistici Agenți Imobiliari </h2>
+<a class='btn btn-primary btn-sm' href='/Agents/Interogare8'>Statistici Agenți Imobiliari</a>
+
+<br />
+<h2> Toți utilizatorii care au vizionat  anunțuri publicate într-un anumit an</h2>
+<a class='btn btn-primary btn-sm' href='/Clients/Interogare7'>Toți utilizatorii care au vizionat  anunțuri publicate într-un anumit an</a>
+
+<br />
+<h2> Căutare Agenți Imobiliari după Localizare</h2>
+<a class='btn btn-primary btn-sm' href='/Agents/Interogare10'>Cauta Agent</a>
+
+<br />
+<h2> Activitatea utilizatorilor</h2>
+<a class='btn btn-primary btn-sm' href='/Agents/Interogare12'>Activitatea utilizatorilor</a>
+
+<br />
+<h2> Diversitatea locațiilor vizitate de utilizatori </h2>
+<a class='btn btn-primary btn-sm' href='/Agents/Interogare13'> Diversitatea locațiilor vizitate de utilizatori </a>
+

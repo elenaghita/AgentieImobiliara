@@ -1,0 +1,35 @@
+﻿@page
+@model Agentie_Imobiliara.Pages.Agents.Interogare13Model
+
+<h2>Diversitatea locațiilor vizitate de utilizatori</h2>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Eroare:</strong> @Model.ErrorMessage
+    </div>
+}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID Utilizator</th>
+            <th>Nume Utilizator</th>
+            <th>Număr Locații Vizitate</th>
+            <th>Locație cu Preț Maxim</th>
+            <th>Preț Maxim</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.listInterogare)
+        {
+            <tr>
+                <td>@item.UtilizatorID</td>
+                <td>@item.NumeUtilizator</td>
+                <td>@item.LocatiiVizitate</td>
+                <td>@item.LocatiePretMaxim</td>
+                <td>@item.PretMaxim</td>
+            </tr>
+        }
+    </tbody>
+</table>

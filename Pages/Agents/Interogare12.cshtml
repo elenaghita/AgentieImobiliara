@@ -1,0 +1,31 @@
+﻿@page
+@model Agentie_Imobiliara.Pages.Agents.Interogare12Model
+@{
+    ViewData["Title"] = "Activitatea utilizatorilor";
+}
+
+<h2>Activitatea utilizatorilor</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID Utilizator</th>
+            <th>Nume Utilizator</th>
+            <th>Vizionări Proprietăți peste Media Prețurilor</th>
+            <th>Vizionări Totale</th>
+            <th>Categorie Interes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.InterogareResult)
+        {
+            <tr>
+                <td>@item.UtilizatorID</td>
+                <td>@item.NumeUtilizator</td>
+                <td>@item.VizionariPesteMedia</td>
+                <td>@item.VizionariTotale</td>
+                <td>@item.CategorieInteres</td>
+            </tr>
+        }
+    </tbody>
+</table>

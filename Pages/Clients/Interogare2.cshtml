@@ -1,0 +1,29 @@
+﻿@page
+@model Agentie_Imobiliara.Pages.Clients.Interogare2Model
+@{
+}
+
+<h2>Proprietăți vizionate de utilizatori</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Utilizator</th>
+            <th>Localizare</th>
+            <th>Preț</th>
+            <th>Data Vizionare</th>
+            <th>Ora Vizionare</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.VizionareList)
+        {
+            <tr>
+                <td>@item.UtilizatorNume @item.UtilizatorPrenume</td>
+                <td>@item.Localizare</td>
+                <td>@item.Pret</td>
+                <td>@item.DataVizionare</td>
+                <td>@item.OraVizionare</td>
+            </tr>
+        }
+    </tbody>
+</table>

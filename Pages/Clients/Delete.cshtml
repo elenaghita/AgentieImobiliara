@@ -1,0 +1,34 @@
+﻿@page
+@using System.Data.SqlClient;
+
+@{
+
+    try
+    {
+        String UtilizatorID = Request.Query["UtilizatorID"];
+
+        String connectionString = "Data Source=DESKTOP-256DFHR\\SQLEXPRESS;Initial Catalog=Anunturi_imobiliare;Integrated Security=True;Encrypt=True;TrustServerCertificate=True";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            String SQL = "DELETE FROM Utilizator WHERE UtilizatorID=@UtilizatorID";
+
+
+            using (SqlCommand command = new SqlCommand(SQL, connection))
+            {
+
+
+                command.Parameters.AddWithValue("@UtilizatorID", UtilizatorID);
+
+                command.ExecuteNonQuery();
+            }
+        }
+    }
+
+    catch (Exception ex)
+    { 
+    }
+
+    Response.Redirect("/Clients/Index");
+
+}

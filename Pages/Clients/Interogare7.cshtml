@@ -1,0 +1,43 @@
+﻿@page
+@model Agentie_Imobiliara.Pages.Clients.Interogare7Model
+@{
+    ViewData["Title"] = "Toți utilizatorii care au vizionat  anunțuri publicate într-un anumit an";
+}
+
+<h2>Toți utilizatorii care au vizionat  anunțuri publicate într-un anumit an</h2>
+
+<form method="get">
+    <label for="AnulPublicarii">Introdu anul publicării:</label>
+    <input type="number" id="AnulPublicarii" name="AnulPublicarii" value="@Model.AnulPublicarii" />
+    <button type="submit">Caută</button>
+</form>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div style="color:red">@Model.ErrorMessage</div>
+}
+
+@if (Model.VizionariList.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Utilizator</th>
+                <th>Număr Vizionări</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.VizionariList)
+            {
+                <tr>
+                    <td>@item.NumeUtilizator</td>
+                    <td>@item.NumarVizionari</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (!string.IsNullOrEmpty(Request.Query["AnulPublicarii"]))
+{
+    <p>Nu au fost găsite rezultate pentru anul specificat.</p>
+}

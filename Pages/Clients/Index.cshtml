@@ -1,0 +1,64 @@
+﻿@page
+@model Agentie_Imobiliara.Pages.Clients.IndexModel
+@{
+}
+
+<br>
+<h2>List of Clients</h2>
+<a class='btn btn-primary btn-sm' href='/Clients/Create'>New Client</a>
+<table class="table">
+	<thead>
+		<tr>
+		<th>UtilizatorID</th>
+		<th>Nume</th>
+		<th>Prenume</th>
+		<th>Email</th>
+		<th>Telefon</th>
+		<th>Parola</th>
+		<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach(var item in Model.listClients)
+		{
+			<tr>
+				<td>@item.UtilizatorID</td>
+				<td>@item.Nume</td>
+				<td>@item.Prenume</td>
+				<td>@item.Email</td>
+				<td>@item.Telefon</td>
+				<td>@item.Parola</td>
+				<td>
+					<a class="btn btn-primary btn-sm" href="/Clients/Edit?UtilizatorID=@item.UtilizatorID">Edit</a>
+					<a class="btn btn-danger btn-sm" href="/Clients/Delete?UtilizatorID=@item.UtilizatorID">Delete</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+
+	</table>
+
+<br />
+<h2>Căutare agent imobiliar</h2>
+<a class='btn btn-primary btn-sm' href='/Clients/Interogare9'> Căutare agent imobiliar </a>
+
+<br />
+<h2>Afisarea detaliilor despre proprietatile vizionate de fiecare client</h2>
+<a class='btn btn-primary btn-sm' href='/Clients/Interogare2'>Afisarea detaliilor </a>
+
+<br />
+<h2>Programări de vizită viitoare pentru utilizatorii site-ului</h2>
+<a class='btn btn-primary btn-sm' href='/Clients/Interogare3'>Programarile viitoare ale clientilor</a>
+
+<br />
+<h2>Istoric</h2>
+<a class='btn btn-primary btn-sm' href='/Clients/Interogare4'>Istoricul programarilor</a>
+
+<br />
+<h2>Lista utilizatorilor care au programat vizionări pentru cele mai scumpe proprietăți</h2>
+<a class='btn btn-primary btn-sm' href='/Clients/Interogare6'>Lista utilizatorilor care au programat vizionări pentru cele mai scumpe proprietăți</a>
+
+<br />
+<h2>Proprietatile cu cele mai multe vizite</h2>
+<a class='btn btn-primary btn-sm' href='/Clients/Interogare11'>Proprietatile cu cele mai multe vizite</a>
+

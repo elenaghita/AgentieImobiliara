@@ -1,0 +1,39 @@
+﻿@page
+@model Agentie_Imobiliara.Pages.Agents.Interogare5Model
+
+<h1 class="text-center">Lista Agenților Imobiliari si vizualizarile propritatilor de care se ocupa </h1>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">
+        <strong>Eroare:</strong> @Model.ErrorMessage
+    </div>
+}
+else if (Model.AgentiList.Count == 0)
+{
+    <div class="alert alert-info text-center">
+        Nu s-au găsit rezultate pentru această interogare.
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Agent Imobiliar</th>
+                <th>Număr Proprietăți Gestionate</th>
+                <th>Număr Vizionări</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var agent in Model.AgentiList)
+            {
+                <tr>
+                    <td>@agent.AgentImobiliar</td>
+                    <td>@agent.NumarProprietati</td>
+                    <td>@agent.NumarVizionari</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

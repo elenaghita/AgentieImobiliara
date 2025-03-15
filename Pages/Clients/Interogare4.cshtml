@@ -1,0 +1,55 @@
+﻿@page
+@model Agentie_Imobiliara.Pages.Clients.Interogare4Model
+@{
+    ViewData["Title"] = "Istoric Programări";
+}
+
+<h1>Istoric Programări</h1>
+
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <div class="alert alert-danger">@Model.ErrorMessage</div>
+}
+else
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Utilizator</th>
+                <th>Proprietate</th>
+                <th>Localizare</th>
+                <th>Nr. Camere</th>
+                <th>Suprafață</th>
+                <th>Pret (€)</th>
+                <th>Agent Imobiliar</th>
+                <th>Data Vizitei</th>
+                <th>Ora Vizitei</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.ProgramariList.Any())
+            {
+                foreach (var programare in Model.ProgramariList)
+                {
+                    <tr>
+                        <td>@programare.Utilizator</td>
+                        <td>@programare.Proprietate</td>
+                        <td>@programare.Localizare</td>
+                        <td>@programare.NrCamere</td>
+                        <td>@programare.Suprafata</td>
+                        <td>@programare.Pret</td>
+                        <td>@programare.AgentImobiliar</td>
+                        <td>@programare.DataVizitei.ToShortDateString()</td>
+                        <td>@programare.OraVizitei</td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="9" class="text-center">Nu există programări recente.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

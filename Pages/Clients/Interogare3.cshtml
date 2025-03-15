@@ -1,0 +1,29 @@
+﻿@page
+@model Agentie_Imobiliara.Pages.Clients.Interogare3Model
+@{
+}
+
+<h2>Programări viitoare de vizită</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Utilizator</th>
+            <th>Localizare</th>
+            <th>Data Vizită</th>
+            <th>Ora Vizită</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ProgramareList)
+        {
+            <tr>
+                <td>@item.UtilizatorNume @item.UtilizatorPrenume</td>
+                <td>@item.Localizare</td>
+                <td>@item.DataVizita</td>
+                <td>@item.OraVizita</td>
+                <td>@item.StatusProgramare</td>
+            </tr>
+        }
+    </tbody>
+</table>

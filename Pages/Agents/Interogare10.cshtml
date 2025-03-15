@@ -1,0 +1,46 @@
+﻿@page
+@model Interogare10Model
+@{
+    ViewData["Title"] = "Căutare Agenți Imobiliari";
+}
+
+<h1>Căutare Agenți Imobiliari după Localizare</h1>
+
+<form method="get">
+    <div>
+        <label for="localizare">Localizare:</label>
+        <input type="text" id="localizare" name="localizare" value="@Model.Localizare" />
+        <button type="submit">Caută</button>
+    </div>
+</form>
+
+@if (Model.AgentImobiliarList != null && Model.AgentImobiliarList.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nume</th>
+                <th>Telefon</th>
+                <th>Email</th>
+                <th>Număr Proprietăți</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var agent in Model.AgentImobiliarList)
+            {
+                <tr>
+                    <td>@agent.AgentImobiliarID</td>
+                    <td>@agent.NumeAgent</td>
+                    <td>@agent.Telefon</td>
+                    <td>@agent.Email</td>
+                    <td>@agent.NumarProprietati</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else if (Model.AgentImobiliarList != null)
+{
+    <p>Nu s-au găsit agenți pentru localizarea introdusă.</p>
+}

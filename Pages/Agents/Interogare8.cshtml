@@ -1,0 +1,28 @@
+﻿@page
+@model Agentie_Imobiliara.Pages.Agents.Interogare8Model
+
+<h2>Lista Agenților Imobiliari</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Agent Imobiliar</th>
+            <th>Nr. Proprietăți Gestionate</th>
+            <th>Valoare Totală Proprietăți</th>
+            <th>Total Vizionări</th>
+            <th>Tip Agent</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var agent in Model.ListaAgenti)
+        {
+            <tr>
+                <td>@agent.NumeAgent</td>
+                <td>@agent.NrProprietatiGestionate</td>
+                <td>@agent.ValoareTotalaProprietati</td>
+                <td>@agent.TotalVizionari</td>
+                <td>@agent.TipAgent</td>
+            </tr>
+        }
+    </tbody>
+</table>
